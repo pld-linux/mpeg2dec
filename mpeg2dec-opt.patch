@@ -1,8 +1,11 @@
---- mpeg2dec-0.2.0/configure.in.orig	Fri Feb 16 05:08:52 2001
-+++ mpeg2dec-0.2.0/configure.in	Fri Oct 26 21:19:54 2001
-@@ -16,36 +16,8 @@
+diff -Nur mpeg2dec-0.2.1.orig/configure.in mpeg2dec-0.2.1/configure.in
+--- mpeg2dec-0.2.1.orig/configure.in	Mon Mar 18 08:48:58 2002
++++ mpeg2dec-0.2.1/configure.in	Mon Sep 23 15:46:53 2002
+@@ -22,41 +22,8 @@
  
+     dnl GCC-specific flags
      dnl -Wall -Werror moved to the end to not disturb the configure script
++    OPT_CFLAGS="$CFLAGS"
  
 -    dnl -O3
 -    changequote(<<,>>)
@@ -10,8 +13,7 @@
 -    changequote([,])
 -    OPT_CFLAGS="$OPT_CFLAGS -O3"
 -    AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS])
-+    OPT_CFLAGS="$CFLAGS"
- 
+-
 -    dnl -fomit-frame-pointer
 -    OPT_CFLAGS="$CFLAGS -fomit-frame-pointer"
 -    AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS])
@@ -28,13 +30,17 @@
 -	k6-*)   OPT_CFLAGS="$CFLAGS -mcpu=k6";;
 -	esac
 -	AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS]);;
--    sparc-*)
--	OPT_CFLAGS="$CFLAGS -mcpu=ultrasparc -mvis"
+-    ppc-* | powerpc-*)
+-	OPT_CFLAGS="$CFLAGS -Wa,-m7400"
+-	AC_TRY_CFLAGS([$OPT_CFLAGS],
+-	    [CFLAGS=$OPT_CFLAGS; AC_DEFINE([ARCH_PPC],,[ppc architecture])]);;
+-    sparc-* | sparc64-*)
+-	OPT_CFLAGS="$CFLAGS -mcpu=ultrasparc -mvis -Wa,-Av9"
 -	AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS]);;
 -    mips-sgi-irix6.*)	dnl do we need to be that specific ?
 -	OPT_CFLAGS="$CFLAGS -mabi=64"
 -	AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS]);;
 -    esac
- else
-     dnl non-gcc flags - we probably need exact configuration triplets here.
-     case "$host_alias" in
+ elif test x"$CC" = x"tcc" -a x"`$CC -version 2>&1 | grep TenDRA`" != x""; then
+     dnl TenDRA portability checking compiler
+     TENDRA=yes
