@@ -64,6 +64,11 @@ Statyczne biblioteki dekodera MPEG-2.
 %patch0 -p1
 %patch1 -p1
 
+# don't define ARCH_PPC now - it would cause altivec usage, which
+# triggers ICE in gcc (different message than in ffmpeg, but maybe
+# the same bug...?)
+%{__perl} -pi -e 's/ARCH_PPC/ARCH_PPC_WORKAROUND/' configure.in
+
 %build
 %{__libtoolize}
 %{__aclocal}
