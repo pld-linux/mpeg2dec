@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
+# Source0-md5: e9f899d232eee5e7282c9c96ffde8016
 Patch0:		%{name}-opt.patch
 URL:		http://libmpeg2.sourceforge.net/
 BuildRequires:	SDL-devel
