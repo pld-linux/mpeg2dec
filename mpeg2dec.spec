@@ -7,8 +7,8 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
-URL:		http://www.linuxvideo.org/
-Source0:	ftp://www.linuxvideo.org/mpeg2dec/files/%{name}-%{version}.tar.gz
+URL:		http://www.linuxvideo.org/mpeg2dec
+Source0:	http://www.linuxvideo.org/mpeg2dec/files/%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
