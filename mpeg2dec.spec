@@ -2,7 +2,7 @@ Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.4.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
@@ -14,6 +14,10 @@ BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+%ifarch ppc
+# version with altivec support (almost?) fixed
+BuildRequires:	gcc >= 5:3.3.2-3
+%endif
 BuildRequires:	libtool
 Requires:	%{name}-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -64,10 +68,9 @@ Statyczne biblioteki dekodera MPEG-2.
 %patch0 -p1
 %patch1 -p1
 
-# don't define ARCH_PPC now - it would cause altivec usage, which
-# triggers ICE in gcc (different message than in ffmpeg, but maybe
-# the same bug...?)
-%{__perl} -pi -e 's/ARCH_PPC/ARCH_PPC_WORKAROUND/' configure.in
+# using altivec code w/o altivec ABI (still) triggers gcc 3.3.2 ICE
+# but I suppose it's needed for this code anyway
+%{__perl} -pi -e 's/-maltivec/-maltivec -mabi=altivec/' configure.in
 
 %build
 %{__libtoolize}
