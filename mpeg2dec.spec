@@ -1,12 +1,12 @@
 Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
-Version:	0.3.1
-Release:	3
+Version:	0.4.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
-# Source0-md5: e9f899d232eee5e7282c9c96ffde8016
+# Source0-md5:	49a70fef1b0f710ed7e64ed32ee82d4d
 Patch0:		%{name}-opt.patch
 URL:		http://libmpeg2.sourceforge.net/
 BuildRequires:	SDL-devel
@@ -60,14 +60,16 @@ Statyczne biblioteki dekodera MPEG-2.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %configure \
+	%{?debug:--enable-debug} \
 	--enable-shared
+
 %{__make}
 
 %install
@@ -89,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files lib
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/corrupt_mpeg2
 %attr(755,root,root) %{_bindir}/extract_mpeg2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/extract_mpeg2.1*
