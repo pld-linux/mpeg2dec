@@ -2,7 +2,7 @@ Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
@@ -15,9 +15,6 @@ BuildRequires:	automake
 BuildRequires:	libtool
 Requires:	%{name}-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_xbindir	/usr/X11R6/bin
-%define		_xmandir	/usr/X11R6/man
 
 %description
 MPEG-2 Decoder.
@@ -74,13 +71,9 @@ Statyczne biblioteki dekodera MPEG-2.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_xbindir},%{_xmandir}/man1}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-mv -f $RPM_BUILD_ROOT{%{_bindir},%{_xbindir}}/mpeg2dec
-mv -f $RPM_BUILD_ROOT{%{_mandir},%{_xmandir}}/man1/mpeg2dec.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -90,8 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_xbindir}/*
-%{_xmandir}/man1/*.1*
+%attr(755,root,root) %{_bindir}/mpeg2dec
+%{_mandir}/man1/*.1*
 
 %files lib
 %defattr(644,root,root,755)
