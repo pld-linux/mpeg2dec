@@ -84,13 +84,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/mpeg2dec
-%{_mandir}/man1/*.1*
+%{_mandir}/man1/mpeg2dec.1*
 
 %files lib
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/extract_mpeg2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_mandir}/man1/*.1*
+%{_mandir}/man1/extract_mpeg2.1*
 
 %files devel
 %defattr(644,root,root,755)
