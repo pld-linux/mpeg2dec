@@ -1,7 +1,7 @@
 Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
-Version:	0.2.1
+Version:	0.3.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
@@ -13,9 +13,11 @@ BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+Requires:	%{name}-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
+%define		_xbindir	/usr/X11R6/bin
+%define		_xmandir	/usr/X11R6/man
 
 %description
 MPEG-2 Decoder.
@@ -23,11 +25,22 @@ MPEG-2 Decoder.
 %description -l pl
 Dekoder MPEG-2.
 
+%package lib
+Summary:	MPEG-2 Decoder library
+Summary(pl):	Biblioteka dekoduj±ca pliki MPEG-2
+Group:		Libraries
+
+%description lib
+MPEG-2 Decoder library and extract_mpeg2 utility.
+
+%description lib -l pl
+Biblioteka dekoduj±ca pliki MPEG-2 i narzêdzie extract_mpeg2.
+
 %package devel
 Summary:	MPEG-2 Decoder development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych dekodera MPEG-2
-Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Group:		Development/Libraries
+Requires:	%{name}-lib = %{version}
 
 %description devel
 MPEG-2 Decoder development files.
@@ -38,7 +51,7 @@ Pliki dla programistów u¿ywaj±cych dekodera MPEG-2.
 %package static
 Summary:	MPEG-2 Decoder static libraries
 Summary(pl):	Statyczne biblioteki dekodera MPEG-2
-Group:		X11/Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -61,24 +74,37 @@ Statyczne biblioteki dekodera MPEG-2.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+install -d $RPM_BUILD_ROOT{%{_xbindir},%{_xmandir}/man1}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+mv -f $RPM_BUILD_ROOT{%{_bindir},%{_xbindir}}/mpeg2dec
+mv -f $RPM_BUILD_ROOT{%{_mandir},%{_xmandir}}/man1/mpeg2dec.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	lib -p /sbin/ldconfig
+%postun	lib -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_xbindir}/*
+%{_xmandir}/man1/*.1*
+
+%files lib
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_mandir}/man1/*.1*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/mpeg2dec
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
+%{_includedir}/mpeg2dec
+%{_pkgconfigdir}/*.pc
 
 %files static
 %defattr(644,root,root,755)
