@@ -38,13 +38,14 @@
      ppc-* | powerpc-*)
  	AC_CHECK_HEADER([altivec.h],
  	    [TRY_CFLAGS="$ARCH_OPT_CFLAGS -maltivec"],
-@@ -76,8 +58,7 @@
+@@ -76,8 +58,8 @@
  	    AC_DEFINE([ARCH_PPC],,[ppc architecture])]);;
      sparc-* | sparc64-*)
  	AC_DEFINE([ARCH_SPARC],,[sparc architecture])
 -	TRY_CFLAGS="$OPT_CFLAGS -mcpu=ultrasparc -mvis"
 -	AC_TRY_CFLAGS([$TRY_CFLAGS $CFLAGS],[OPT_CFLAGS="$TRY_CFLAGS"]);;
-+	;;
++	TRY_CFLAGS="$ARCH_OPT_CFLAGS -mcpu=ultrasparc -mvis"
++	AC_TRY_CFLAGS([$OPT_CFLAGS $TRY_CFLAGS $CFLAGS],[ARCH_OPT_CFLAGS="$TRY_CFLAGS"]);;
      alpha*)
  	AC_DEFINE([ARCH_ALPHA],,[alpha architecture]);;
      esac
