@@ -1,13 +1,13 @@
 Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
-Version:	0.2.0
-Release:	3
+Version:	0.2.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://www.linuxvideo.org/mpeg2dec/files/%{name}-%{version}.tar.gz
+Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
-URL:		http://www.linuxvideo.org/mpeg2dec/
+URL:		http://libmpeg2.sourceforge.net
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
