@@ -5,9 +5,6 @@ Version:	0.2.0
 Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
-Group(de):	X11/Applikationen/Grafik
-Group(pl):	X11/Aplikacje/Grafika
-Group(pt):	X11/AplicaГУes/GrАficos
 Source0:	http://www.linuxvideo.org/mpeg2dec/files/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 URL:		http://www.linuxvideo.org/mpeg2dec/
@@ -30,13 +27,6 @@ Dekoder MPEG-2.
 Summary:	MPEG-2 Decoder development files
 Summary(pl):	Pliki dla programistСw u©ywaj╠cych dekodera MPEG-2
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -49,13 +39,6 @@ Pliki dla programistСw u©ywaj╠cych dekodera MPEG-2.
 Summary:	MPEG-2 Decoder static libraries
 Summary(pl):	Statyczne biblioteki dekodera MPEG-2
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
