@@ -2,7 +2,7 @@ Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.4.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
@@ -73,6 +73,8 @@ Statyczne biblioteki dekodera MPEG-2.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	%{?debug:--enable-debug} \
 	--enable-shared
