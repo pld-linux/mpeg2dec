@@ -53,7 +53,7 @@ Statyczne biblioteki dekodera MPEG-2.
 
 %build
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--enable-shared
