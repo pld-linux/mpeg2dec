@@ -2,7 +2,7 @@ Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.4.0b
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
@@ -11,7 +11,6 @@ Patch0:		%{name}-opt.patch
 Patch1:		%{name}-use_pic.patch
 URL:		http://libmpeg2.sourceforge.net/
 BuildRequires:	SDL-devel
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 %ifarch ppc
@@ -19,6 +18,8 @@ BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.3.2-3
 %endif
 BuildRequires:	libtool
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXv-devel
 Requires:	%{name}-lib = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +45,8 @@ Summary:	MPEG-2 Decoder development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych dekodera MPEG-2
 Group:		Development/Libraries
 Requires:	%{name}-lib = %{version}
+Requires:	xorg-lib-libXext-devel
+Requires:	xorg-lib-libXv-devel
 
 %description devel
 MPEG-2 Decoder development files.
