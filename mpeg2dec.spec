@@ -9,6 +9,8 @@ Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
 # Source0-md5:	52d10ea80595ec83d8557ba7ac6dc8e6
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-use_pic.patch
+Patch2:		%{name}-asm.patch
+
 URL:		http://libmpeg2.sourceforge.net/
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
@@ -70,6 +72,7 @@ Statyczne biblioteki dekodera MPEG-2.
 %setup -q -n %{name}-0.4.0
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # using altivec code w/o altivec ABI (still) triggers gcc 3.3.2 ICE
 # but I suppose it's needed for this code anyway
