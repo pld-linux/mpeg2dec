@@ -1,0 +1,23 @@
+diff -aurN mpeg2dec-0.4.0.orig/libmpeg2/cpu_accel.c mpeg2dec-0.4.0/libmpeg2/cpu_accel.c
+--- mpeg2dec-0.4.0.orig/libmpeg2/cpu_accel.c	2003-10-06 04:31:52.000000000 +0200
++++ mpeg2dec-0.4.0/libmpeg2/cpu_accel.c	2006-02-22 19:56:33.040862464 +0100
+@@ -33,7 +33,7 @@
+ #ifdef ARCH_X86
+ static inline uint32_t arch_accel (void)
+ {
+-    uint32_t eax, ebx, ecx, edx;
++    unsigned long eax, ebx, ecx, edx;
+     int AMD;
+     uint32_t caps;
+ 
+@@ -63,8 +63,8 @@
+     __asm__ ("pushf\n\t"
+ 	     "pushf\n\t"
+ 	     "pop %0\n\t"
+-	     "movl %0,%1\n\t"
+-	     "xorl $0x200000,%0\n\t"
++	     "mov %0,%1\n\t"
++	     "xor $0x200000,%0\n\t"
+ 	     "push %0\n\t"
+ 	     "popf\n\t"
+ 	     "pushf\n\t"
