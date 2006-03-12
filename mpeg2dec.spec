@@ -1,16 +1,16 @@
+%define		_snap 20060312
 Summary:	MPEG-2 Decoder
 Summary(pl):	Dekoder plików MPEG-2
 Name:		mpeg2dec
-Version:	0.4.0b
-Release:	2
+Version:	0.5.0
+Release:	0.%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}-%{_snap}.tar.bz2
+#Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
 # Source0-md5:	52d10ea80595ec83d8557ba7ac6dc8e6
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-use_pic.patch
-Patch2:		%{name}-asm.patch
-
 URL:		http://libmpeg2.sourceforge.net/
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
@@ -69,14 +69,9 @@ MPEG-2 Decoder static libraries.
 Statyczne biblioteki dekodera MPEG-2.
 
 %prep
-%setup -q -n %{name}-0.4.0
+%setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-
-# using altivec code w/o altivec ABI (still) triggers gcc 3.3.2 ICE
-# but I suppose it's needed for this code anyway
-%{__perl} -pi -e 's/-maltivec/-maltivec -mabi=altivec/' configure.in
 
 %build
 %{__libtoolize}
