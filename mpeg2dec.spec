@@ -7,8 +7,8 @@ Release:	0.%{_snap}.1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	%{name}-%{version}-%{_snap}.tar.bz2
+# Source0-md5:	aa4b6d3b9ba1364e55b5d1e8373720ef
 #Source0:	http://libmpeg2.sourceforge.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	52d10ea80595ec83d8557ba7ac6dc8e6
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-use_pic.patch
 URL:		http://libmpeg2.sourceforge.net/
