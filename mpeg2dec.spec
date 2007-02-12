@@ -1,6 +1,6 @@
 %define		_snap 20060312
 Summary:	MPEG-2 Decoder
-Summary(pl):	Dekoder plików MPEG-2
+Summary(pl.UTF-8):   Dekoder plikÃ³w MPEG-2
 Name:		mpeg2dec
 Version:	0.5.0
 Release:	0.%{_snap}.2
@@ -28,23 +28,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 MPEG-2 Decoder.
 
-%description -l pl
+%description -l pl.UTF-8
 Dekoder MPEG-2.
 
 %package lib
 Summary:	MPEG-2 Decoder library
-Summary(pl):	Biblioteka dekoduj±ca pliki MPEG-2
+Summary(pl.UTF-8):   Biblioteka dekodujÄ…ca pliki MPEG-2
 Group:		Libraries
 
 %description lib
 MPEG-2 Decoder library and extract_mpeg2 utility.
 
-%description lib -l pl
-Biblioteka dekoduj±ca pliki MPEG-2 i narzêdzie extract_mpeg2.
+%description lib -l pl.UTF-8
+Biblioteka dekodujÄ…ca pliki MPEG-2 i narzÄ™dzie extract_mpeg2.
 
 %package devel
 Summary:	MPEG-2 Decoder development files
-Summary(pl):	Pliki dla programistów u¿ywaj±cych dekodera MPEG-2
+Summary(pl.UTF-8):   Pliki dla programistÃ³w uÅ¼ywajÄ…cych dekodera MPEG-2
 Group:		Development/Libraries
 Requires:	%{name}-lib = %{version}
 Requires:	xorg-lib-libXext-devel
@@ -53,19 +53,19 @@ Requires:	xorg-lib-libXv-devel
 %description devel
 MPEG-2 Decoder development files.
 
-%description devel -l pl
-Pliki dla programistów u¿ywaj±cych dekodera MPEG-2.
+%description devel -l pl.UTF-8
+Pliki dla programistÃ³w uÅ¼ywajÄ…cych dekodera MPEG-2.
 
 %package static
 Summary:	MPEG-2 Decoder static libraries
-Summary(pl):	Statyczne biblioteki dekodera MPEG-2
+Summary(pl.UTF-8):   Statyczne biblioteki dekodera MPEG-2
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
 MPEG-2 Decoder static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki dekodera MPEG-2.
 
 %prep
