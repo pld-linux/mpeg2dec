@@ -1,6 +1,6 @@
 %define		_snap 20060312
 Summary:	MPEG-2 Decoder
-Summary(pl.UTF-8):   Dekoder plików MPEG-2
+Summary(pl.UTF-8):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.5.0
 Release:	0.%{_snap}.2
@@ -33,7 +33,7 @@ Dekoder MPEG-2.
 
 %package lib
 Summary:	MPEG-2 Decoder library
-Summary(pl.UTF-8):   Biblioteka dekodująca pliki MPEG-2
+Summary(pl.UTF-8):	Biblioteka dekodująca pliki MPEG-2
 Group:		Libraries
 
 %description lib
@@ -44,7 +44,7 @@ Biblioteka dekodująca pliki MPEG-2 i narzędzie extract_mpeg2.
 
 %package devel
 Summary:	MPEG-2 Decoder development files
-Summary(pl.UTF-8):   Pliki dla programistów używających dekodera MPEG-2
+Summary(pl.UTF-8):	Pliki dla programistów używających dekodera MPEG-2
 Group:		Development/Libraries
 Requires:	%{name}-lib = %{version}
 Requires:	xorg-lib-libXext-devel
@@ -58,7 +58,7 @@ Pliki dla programistów używających dekodera MPEG-2.
 
 %package static
 Summary:	MPEG-2 Decoder static libraries
-Summary(pl.UTF-8):   Statyczne biblioteki dekodera MPEG-2
+Summary(pl.UTF-8):	Statyczne biblioteki dekodera MPEG-2
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
