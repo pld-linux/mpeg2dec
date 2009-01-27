@@ -3,7 +3,7 @@ Summary:	MPEG-2 Decoder
 Summary(pl.UTF-8):	Dekoder plików MPEG-2
 Name:		mpeg2dec
 Version:	0.5.0
-Release:	0.%{_snap}.2
+Release:	0.%{_snap}.3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	%{name}-%{version}-%{_snap}.tar.bz2
